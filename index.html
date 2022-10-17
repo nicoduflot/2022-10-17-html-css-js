@@ -74,7 +74,7 @@
                         Avant html5, pour mettre en forme différement une partie du texte d'un paragraphe, on utilisait la balise font, mais cette balise est maintenant <font face="Arial" color="#FF0000" size="4">dépréciée</font>.
                     </p>
                     <p>
-                        On utilise à la place une balise qui entourera le contenu a modifier, <span class="rouge-gras">avec une classe CSS qui précisera la façon dont le texte est modifié</span>.
+                        On utilise à la place une balise qui entourera le contenu a modifier, <span class="rouge-gras">avec une classe CSS qui précisera la façon dont le texte est modifié : span avec une classe de mise en forme pour le texte</span>.
                     </p>
                     <p>
                         Les balises de mise en forme sont de moins en moins nombreuses,
@@ -85,7 +85,85 @@
                         Il existe aussi la <q> citation rapide </q>
                     </p>
                 </main>
-
+                <footer>
+                    <a href="./article.html">
+                        <button role="link">
+                            Lire la suite
+                        </button>
+                    </a>
+                </footer>
+            </article>
+            <article>
+                <header>
+                    <h2>Les listes</h2>
+                </header>
+                <main>
+                    <p>
+                        Il existe deux types de liste, les listes non ordonnées (Un-ordered list), et les listes ordonnées (ordered list). Les listes <b>DOIVENT</b> être écrites en dehors des paragraphes.
+                    </p>
+                    <h3>Liste non-ordonnée</h3>
+                    <ul>
+                        <li>Un élément de liste</li>
+                        <li>Un deuxième élément de liste</li>
+                        <li>
+                            un élément de liste possèdant des sous-éléments de liste
+                            <ul>
+                                <li>un sous-élément de liste</li>
+                                <li>un second sous-élément de liste.</li>
+                            </ul>
+                        </li>
+                        <li>un troisièle élément de liste</li>
+                    </ul>
+                    <h3>Liste ordonnée</h3>
+                    <ol>
+                        <li>Un élémént de liste</li>
+                        <li>Un deuxième élément de liste</li>
+                        <li>
+                            un élément de liste possèdant des sous-éléments de liste
+                            <ol type="a">
+                                <li>un sous-élément de liste</li>
+                                <li>un second sous-élément de liste.</li>
+                            </ol>
+                        </li>
+                        <li>un troisièle élément de liste</li>
+                    </ol>
+                </main>
+                <footer>
+                    <a href="./article.html">
+                        <button role="link">
+                            Lire la suite
+                        </button>
+                    </a>
+                </footer>
+                <article>
+                    <header>
+                        <h2>D'autres balises de contenu</h2>
+                    </header>
+                    <main>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias, tempore quidem nam labore voluptatibus doloribus. Deleniti neque similique exercitationem maxime, molestias dolores eligendi. Accusamus minima possimus odio ducimus fuga dignissimos!
+                        </p>
+                        <blockquote>
+                            <q>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore enim accusamus molestiae eaque minima, odio, cumque quis aliquid assumenda nihil ipsam voluptate asperiores quo, perferendis soluta aliquam tempora sequi nisi.</q><br />
+                            <cite>La chute de l'empire romain</cite><br />
+                            <i><b>Jules César</b></i>
+                        </blockquote>
+                        <code>
+                            let maVariable;<br />
+                            maVariable = 12;<br />
+                            &lt;b&gt;mot en gras&lt;/b&gt;
+                        </code>
+                        <p>
+                            H<sub>2</sub>SO<sub>4</sub><sup>2-</sup>
+                        </p>
+                    </main>
+                    <footer>
+                        <a href="./article.html">
+                            <button role="link">
+                                Lire la suite
+                            </button>
+                        </a>
+                    </footer>
             </article>
         </section>
     </main>
