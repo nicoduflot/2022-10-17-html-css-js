@@ -1,0 +1,32 @@
+/*
+Commentaire en CSS
+
+Sur cette feuille de style, on déclare les propriétés CSS que l'on appliquera à divers éléments de la page 
+html à laquelle cette feuille est liée (link)
+
+Le CSS (Cascading Style Sheet) ou Feuille de Style en Cascade fonctionne par héritage : 
+ce qui est déclaré pour une balise, sera par défaut reçu en héritage
+par les balises qu'elle contient.
+
+<body>
+    <header>
+        <h1>Titre<.h1>
+    </header>
+</body>
+
+si je déclare la police de caractère Arial pour body, automatiquement header et h1 utiliseront aussi cette police (héritage).
+
+Si je voulais que h1 utilise une autre police, je dois créer une règles CSS précisant la police qui serautilisée par h1
+
+Le CSS s'applique sur les éléments HTML à l'aide de sélecteurs
+
+on peut décrire un sélécteur à l'aide des balises impactés, ou par des classes appliquées à un élément, ou en utilisant un identifiant d'élément
+
+On peut même combiner toutes ces manières pour être très précis dans les éléments qui seront impactés par les déclarations CSS
+
+une classe est préfixée d'un point
+
+.rouge-gras => la classe qui s'appelle "rouge-gras" dans l'élément l'attribut utilisé class="rouge-gras"
+
+*/
+
