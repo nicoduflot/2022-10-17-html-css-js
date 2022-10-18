@@ -25,8 +25,158 @@ on peut décrire un sélécteur à l'aide des balises impactés, ou par des clas
 On peut même combiner toutes ces manières pour être très précis dans les éléments qui seront impactés par les déclarations CSS
 
 une classe est préfixée d'un point
-
 .rouge-gras => la classe qui s'appelle "rouge-gras" dans l'élément l'attribut utilisé class="rouge-gras"
 
+On peut aussi sélectionner un élément par son identifiant (attribut id)
+un ID, quant il est appelé en sélecteur CSS, est préfixé d'un #
+#navigation-principale => l'élément de la page qui possède id="navigation-principale"
+
+Au niveau de la sélection par balise, il existe une sorte de décriture qui différencie les descendants directs d'éléments aux descendant plus ou moins directs d'un élément
+
+body > nav => les éléments html <nav> enfant directs (fils ou fille) de l'élément body
+<body>
+    <nav>
+        <!-- cet élément est impacté => fils direct de body -->
+    </nav>
+    <main>
+        <nav>
+            <!-- cet élément n'est pas impacté  => petit fils de body-->
+        </nav>
+    </main>
+</body>
+
+body nav => les éléments html <nav> enfant directs ou indirects (fils ou fille, petit fils, arrière ) de l'élément body
+<body>
+    <nav>
+        <!-- cet élément est impacté => fils direct de body -->
+    </nav>
+    <main>
+        <nav>
+            <!-- cet élément n'est pas impacté  => petit fils de body-->
+        </nav>
+    </main>
+</body>
+
 */
+
+/*
+Unités de taille les plus vues en web :
+px      =>  Pixel
+em      =>  cadratin : unité de mesure en print sur les presses
+            le cadratin se calcul par rapport à la taille de la police dans l'élément parent
+rem     =>  cadratin racine : se calcul par rapport à la taille de la police déclarée à la racine
+%       =>  pourcentage, se calcule par rapport à l'élément qui le contient
+vw & vh =>  viewport width & viewport height : correspond à la taille 
+            d'affichage de la page en largeur et en hauteur
+            si affichage en largeur 768px alors 20vw = 153.6 px
+
+si 2em = 32 px, 1em = 16px
+
+*/
+
+:root{
+    /* permet de faire des déclaration CSS générale pour toutes les page qui appellent ce fichier CSS */
+    font-family:  Arial, Helvetica, sans-serif;
+    /* il est possible de créer des variables pour définir la charte graphique générale des pages */
+    --font-title: 'Arial Narrow Bold', sans-serif;
+    --color-title: darkgreen;
+    --link-color: darkred;
+    --bg-main-nav: rgb(197, 197, 197);
+}
+
+*{
+    box-sizing: border-box;
+}
+
+h1, 
+h2, 
+h3,
+h4,
+h5,
+h6{
+    font-family: var(--font-title);
+    color: var(--color-title);
+}
+
+h1{
+    margin: 0;
+}
+
+a,
+a:visited{
+    color: var(--link-color);
+    text-decoration:none;
+    font-weight: bold;
+}
+
+ul{
+    list-style-type: none;
+    padding: 0;
+}
+
+.deuxEm{
+    border: 1px solid black;
+    font-size: 2em;
+}
+
+.deuxRem{
+    border: 1px solid black;
+    font-size: 2rem;
+}
+
+.deuxCentPx{
+    width: 200px;
+    padding: 10px;
+    border: 2px solid darkgreen;
+}
+
+body{
+    margin: 0;
+}
+
+#navigation-principale ul{
+    display: flex;
+    line-height: 2rem;
+    background-color: var(--bg-main-nav);
+}
+
+#navigation-principale ul a,
+#navigation-principale ul a:visited{
+    padding-left: 15px;
+    padding-right: 15px;
+    display: block;
+}
+
+#navigation-principale ul a:hover,
+#navigation-principale ul a:focus{
+    background-color: var(--link-color);
+    color: var(--bg-main-nav);
+}
+
+body > main,
+#navigation-principale ul{
+    width: 80%;
+    
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    /*
+    equivalent à margin: 0 auto;
+    équivalent à margin: 0 auto 0 auto;
+    */
+}
+
+body > main > section{
+    display: flex; 
+    /* les éléments à l'intérieur se tiendront côte à côte et s'il n'ont pas de largeur calculée ou indiquées, il se tasseront pour occuper tout l'espace */
+    flex-wrap: wrap;
+    /* si la largeur cumulée des éléments à l'intérieur dépasse la taille maximale de l'élément conteneur,les éléments enfants qui dépassent vont "à la ligne" */
+    justify-content: space-between;
+    /*  sur la même ligne d'affichage, le premier élément est "collé" tout à gauche, il est espacé du suivant par un écart calculé, et le dernier élément de la ligne est "collé tout à droite"*/
+}
+
+body > main article{
+    width: 30%;
+}
 

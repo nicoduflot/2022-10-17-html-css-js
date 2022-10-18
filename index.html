@@ -28,7 +28,7 @@
     <header>
         <h1>Formation HTML5 - CSS3</h1>
     </header>
-    <nav>
+    <nav id="navigation-principale">
         <!-- 
             Balise sémantique indiquant la présence d'une navigation dans le site
         -->
@@ -71,7 +71,7 @@
                         Par défaut, pour séparer les parties d'un texte, le paragraphe est la balise principale a utiliser
                     </p>
                     <p>
-                        Il existe des balise qui mettent en forme le texte sans impacter le SEO. Par exemple le texte en <b>gras</b>, 
+                        Il existe des balises qui mettent en forme le texte sans impacter le SEO. Par exemple le texte en <b>gras</b>, 
                         ou en <i>italique</i>
                     </p>
                     <p>
@@ -142,35 +142,53 @@
                         </button>
                     </a>
                 </footer>
-                <article>
-                    <header>
-                        <h2>D'autres balises de contenu</h2>
-                    </header>
-                    <main>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias, tempore quidem nam labore voluptatibus doloribus. Deleniti neque similique exercitationem maxime, molestias dolores eligendi. Accusamus minima possimus odio ducimus fuga dignissimos!
-                        </p>
-                        <blockquote>
-                            <q>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore enim accusamus molestiae eaque minima, odio, cumque quis aliquid assumenda nihil ipsam voluptate asperiores quo, perferendis soluta aliquam tempora sequi nisi.</q><br />
-                            <cite>La chute de l'empire romain</cite><br />
-                            <i><b>Jules César</b></i>
-                        </blockquote>
-                        <code>
-                            let maVariable;<br />
-                            maVariable = 12;<br />
-                            &lt;b&gt;mot en gras&lt;/b&gt;
-                        </code>
-                        <p>
-                            H<sub>2</sub>SO<sub>4</sub><sup>2-</sup>
-                        </p>
-                    </main>
-                    <footer>
-                        <a href="./article.html">
-                            <button role="link">
-                                Lire la suite
-                            </button>
-                        </a>
-                    </footer>
+            </article>
+            <article>
+                <header>
+                    <h2>D'autres balises de contenu</h2>
+                </header>
+                <main>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias, tempore quidem nam labore voluptatibus doloribus. Deleniti neque similique exercitationem maxime, molestias dolores eligendi. Accusamus minima possimus odio ducimus fuga dignissimos!
+                    </p>
+                    <blockquote>
+                        <q>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore enim accusamus molestiae eaque minima, odio, cumque quis aliquid assumenda nihil ipsam voluptate asperiores quo, perferendis soluta aliquam tempora sequi nisi.</q><br />
+                        <cite>La chute de l'empire romain</cite><br />
+                        <i><b>Jules César</b></i>
+                    </blockquote>
+                    <code>
+                        let maVariable;<br />
+                        maVariable = 12;<br />
+                        &lt;b&gt;mot en gras&lt;/b&gt;
+                    </code>
+                    <p>
+                        H<sub>2</sub>SO<sub>4</sub><sup>2-</sup>
+                    </p>
+                    <div class="deuxEm">
+                        2 em
+                        <div class="deuxEm">
+                            2 em
+                        </div>
+                    </div>
+                    <br />
+                    <div class="deuxRem">
+                        2 rem
+                        <div class="deuxRem">
+                            2 rem
+                        </div>
+                    </div>
+                    <br />
+                    <div class="deuxCentPx">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam dolorum sed repellendus eveniet aut cupiditate impedit! Maxime aut iste, esse earum tenetur odit optio quae, sequi est odio distinctio dignissimos!
+                    </div>
+                </main>
+                <footer>
+                    <a href="./article.html">
+                        <button role="link">
+                            Lire la suite
+                        </button>
+                    </a>
+                </footer>
             </article>
         </section>
     </main>
