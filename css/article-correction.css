@@ -25,6 +25,15 @@ body > main article{
     width: 100%;
 }
 
+#tableau1{
+    border-collapse: collapse;
+}
+
+#tableau1 td, 
+#tableau1 th{
+    border: 1px solid black;
+}
+
 aside{
     background-color: var(--bg-main-nav);
     border: 1px solid var(--tab-border);
