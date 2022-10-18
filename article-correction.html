@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--
+        Espace de commentaire
+    -->
+    <meta keywords="Formation html CSS, HTML, CSS, HTML5, CSS3" />
+    <meta description="Première page de la Formation html CSS, bases pratiques des balises sémantique" />
+    <title>Formation HTML5 - CSS3</title>
+    <!-- 
+        C'est aussi dans la partie head (entête du document) où 
+        sont indiqués les fichiers CSS de mise en forme ainsi
+        que les source de sctipt javascript (JS)
+    -->
+    <link rel="stylesheet" href="./css/style.css" media="all" />
+    <link rel="stylesheet" href="./css/article-correction.css" media="all" />
+</head>
+
+<body>
+    <style>
+        .rouge-gras {
+            color: darkred;
+            font-weight: bold;
+        }
+    </style>
+    <header>
+        <h1>Formation HTML5 - CSS3</h1>
+    </header>
+    <nav id="navigation-principale">
+        <!-- 
+            Balise sémantique indiquant la présence d'une navigation dans le site
+        -->
+        <ul>
+            <li>
+                <a href="./index.html" target="_self" title="Lien vers la page d'accueil">
+                    Accueil
+                </a>
+            </li>
+            <li>
+                <a href="./media.html" target="_self" title="Lien vers Media et documents">
+                    Media
+                </a>
+            </li>
+            <li>
+                <a href="./article.html" class="active" target="_self" title="Lien vers Un exemple d'article">
+                    Article
+                </a>
+            </li>
+            <li>
+                <a href="./formulaire.html" target="_self" title="Lien vers Formulaire de contact">
+                    Formulaire
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <!-- 
+                Reprendre un court article sur internet, utiliser son contenu et ses images
+             -->
+            <article>
+                <header>
+                    <h2>Caméra multiplane</h2>
+                </header>
+                <main>
+                    <aside class="aside right">
+                        <h3>Caméra multiplane</h3>
+                        <figure>
+                            <img src="./images/multiplane/Multiplane_camera.jpg"
+                                alt="reproduction d'une caméra multiplane" />
+                            <figcaption>
+                                Une reproduction de caméra multiplane par un amateur d'animation.
+                            </figcaption>
+                        </figure>
+                        <table>
+                            <tr>
+                                <th>Domaine d'application</th>
+                                <td>Animation</td>
+                            </tr>
+                            <tr>
+                                <th>Date de création</th>
+                                <td>1937</td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    Inventeur(s)
+                                </th>
+                                <td>
+                                    Bill Garity puis Ub Iwerks (1941)
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    Entreprise
+                                </th>
+                                <td>
+                                    studios Disney
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    Premier usage connu
+                                </th>
+                                <td>
+                                    concept Les Aventures du prince Ahmed (1926)<br />
+                                    Le Vieux Moulin (1937)
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    Invention dérivée
+                                </th>
+                                <td>
+                                    Automatic Camera Effects Systems (1978)
+                                </td>
+                            </tr>
+                        </table>
+                    </aside>
+                    <p>
+                        La caméra multiplane est un système amélioré au sein des studios Disney pour donner un effet de
+                        profondeur au dessin animé. Le premier concept de caméra multiplane a été créé et testé par
+                        Lotte Reiniger pour son film Les Aventures du prince Ahmed (1926) mais le brevet a été
+                        officiellement déposé par Bill Garity en 1933 dans le cadre de son travail pour Disney. La
+                        première production est le court métrage Le Vieux Moulin (1937) de la série des Silly
+                        Symphonies.
+                    </p>
+                    <hr />
+                    <h3>La technologie</h3>
+                    <p>
+                        Le système a été créé par Bill Garity1,2,3 ingénieur aux studios Disney en 1933 pour donner un
+                        effet de profondeur au dessin animé en utilisant plusieurs niveaux mobiles pour poser des
+                        cellulos.
+                    </p>
+                    <p>
+                        Cette technologie a été utilisée pour la première fois sur Le Vieux Moulin (1937) et sur les
+                        longs métrages comme Blanche-Neige et les Sept Nains (1937), Pinocchio (1940), Fantasia (1940)
+                        et Bambi (1942)3.
+                    </p>
+                    <p>
+                        Le développement de cette technologie aurait coûté à l'époque 70 000 USD4.
+                    </p>
+                    <p>
+                        Le système a été amélioré à partir de 1941 par Ub Iwerks, qui avait développé dans son propre
+                        studio une version à la disposition horizontale des différents supports3. Après la fin de la
+                        production de Bambi, son usage sera sensiblement amoindri en raison de son coût et de ses délais
+                        d'utilisation5.
+                    </p>
+                    <p>
+                        À la demande Ron Miller qui avait entendu parler de la Dykstraflex utilisée sur Star Wars que le
+                        studio lance le développement du A.C.E.S6, le système de Matte scan a été amélioré pour intégrer
+                        une caméra multiplane et plus de contrôle informatique jusqu'à devenir le système Automatic
+                        Camera Effects Systems (A.C.E.S.)7,8.
+                    </p>
+                    <hr />
+                    <h3>Le principe</h3>
+                    <p>
+                        Les cellulos sont placés à différentes hauteurs sur différents bancs-titres, des plaques de
+                        verre.
+                    </p>
+                    <p>
+                        Le cellulo correspondant au décor est placé tout en bas derrière ceux correspondants aux
+                        différents personnages et éléments mobiles du plan. Ainsi, lorsqu'un élément se déplace, on
+                        n'est pas obligé de dessiner ou bouger toutes les cellulos mais seulement les éléments qui
+                        changent.
+                    </p>
+                    <p>
+                        Il est aussi possible d'avoir des éclairages différents selon les hauteurs.
+                    </p>
+                    <p>
+                        En haut du système, perchée à plus de 4 m de haut4, une caméra photographie l'image finale une
+                        fois tous les ajustements faits.
+                    </p>
+                    <p>
+                        On gagne alors en temps dans la fabrication du film et les éléments fixes ne donnent pas
+                        l'impression de vibration qui serait apparue s’ils avaient été redessinés à chaque image.
+                    </p>
+                    <div class="clear"></div>
+                    <hr />
+                    <h3>Son fonctionnement</h3>
+                    <aside class="aside left">
+                    <figure>
+                        <img src="./images/multiplane/disney_multiplane.jpg"
+                            alt="Principe de fonctionnement de la caméra multiplane " />
+                        <figcaption>
+                            Principe de fonctionnement de la caméra multiplane
+                        </figcaption>
+                    </figure>
+                    </aside>
+                    <h4>
+                        Comment la Camera multiplane fonctionne ?
+                    </h4>
+                    <p>
+                        Imaginez que vous voyagez en voiture sur un long trajet en voiture. La route s'étend devant vous
+                        dans un paysage très ouvert. Au loin, vous voyez une gamme de hautes montagnes, brumeux. Comme
+                        vous conduisez, vous voyez des arbres et des poteaux de téléphone devant vous. Au début, ils
+                        semblent minuscules dans la distance. Peu à peu, ils deviennent plus grands puisque vous voyagez
+                        plus proche d'eux et les dépassés. Étrangement, les montagnes semblent encore très loin et
+                        brumeuses. Ils ne semblent pas avoir été plus grande en dépit d'avoir été plus proche de la même
+                        façon que les arbres et les poteaux de téléphone l'ont fait. Pourquoi? Parce que les montagnes
+                        sont si grands et loin que la variation de leur taille apparente est négligeable.
+                    </p>
+                    <p>
+                        Un effet similaire se produit dans le cinéma. Imaginez une caméra vidéo pointée sur une peinture
+                        d'un paysage. Pour créer l'effet de voyager vers ou à travers le paysage, vous pouvez utiliser
+                        la
+                        fonction de zoom sur la caméra vidéo, qui fournit l'illusion d'avancer. Les rochers, les arbres
+                        et les buissons apparaîtront grossissant, mais les montagnes, les nuages, le soleil, et tout le
+                        reste seront sur une peinture en deux dimensions. L'illusion de voyager en avant dans le paysage
+                        ne pouvait être accompli de façon réaliste en utilisant cette méthode. La Caméra Multiplane
+                        résout ce problème en divisant un champ de vision dans différents plans ou niveaux. Des plans
+                        distincts sont
+                        utilisés pour le premier plan, un terrain d'entente, et le fond.
+                        Pour un travelling avant-motion, un effet plus réaliste est accompli en déplaçant le premier
+                        plan et le plan central vers la caméra, tandis que le plan de fond reste stationnaire.
+                    </p>
+                    <p>
+                        L'utilisation de la caméra Multiplane nécessite plusieurs techniciens pour régler les nombreuses
+                        lumières, configurations, et les positions de plan pour chaque prise de vue unique. Chaque prise
+                        nécessite également de nombreux tests afin d'établir la perspective desiré, les proportions, et
+                        le moment de la scène. Dans l'exemple ci-dessus, remarquez la maison sur la colline pendant la
+                        nuit. Les arbres et la clôture seraient placés sur le plan le plus proche de la caméra, la
+                        maison sur la colline serait placé sur le plan médian, et la lune serait placé sur le plan le
+                        plus éloigné de la caméra. De cette façon, un travelling dessinant le spectateur dans la scène
+                        peut être accompli en déplaçant le premier plan et le plan médian vers la caméra tandis que le
+                        plan de fond reste stationnaire. La lune reste de la même taille plutôt que de grossir de plus
+                        en plus de manière irréaliste plus gros comme le ferait un simple zoom.
+                    </p>
+                    <p>
+                        Brevetage de la Camera Multiplane par William Garity : <a
+                            href="http://www.google.fr/patents/US2198006">http://www.google.fr/patents/US2198006</a>; <a
+                            href="http://www.google.fr/patents/US2281033">http://www.google.fr/patents/US2281033</a>
+                    </p>
+                    <hr />
+                    <h3>Pourquoi était-elle importante ?</h3>
+                    <aside class="aside right">
+                        <figure>
+                            <img src="./images/multiplane/disney-1937-multiplane-camera.jpg"
+                                alt="Caméra multiplane au Walt Disney Museum" />
+                            <figcaption>
+                                Caméra multiplane au Walt Disney Museum
+                            </figcaption>
+                        </figure>
+                    </aside>
+                    <p>
+                        Technicien de Walt Disney Studios Bill Garity développé la caméra Multiplane au cours d'une
+                        période de grande expérimentation et a continué au studio Walt Disney.
+                    </p>
+                    <p>
+                        La caméra a créé
+                        l'illusion de la profondeur, ce qui a aidé les films d'animation à paraître plus intéressant et
+                        réaliste. La caméra multiplane a été d'abord utilisé comme une expérience dans la production de
+                        Silly Symphony "The Old Mill" en 1937.
+                    </p>
+                    <p>
+                        Le film été prévoyait de suivre une structure narrative
+                        traditionnelle qui commencerait par un travelling avant, tirant le public dans le cadre
+                        idyllique du moulin et de ses environs. Le plan final du film a été conçu comme un travelling
+                        arrière, s'éloignant de l'usine pour un sens de fermeture. Auparavant, il n'y avait pas moyen de
+                        créer un travelling avec succès en utilisant des méthodes d'animation traditionnelles et l'acte
+                        de l'animation était longue et coûteuse. La caméra multiplane a répondu à ce problème en créant
+                        un sens réaliste de la profondeur en trois dimensions dans un cadre de dessin animé.
+                    </p>
+                    <p>
+                        L'utilisation novatrice de la Caméra Multiplane a été reconnu en 1938, lorsque The Walt Disney
+                        Studios a reçu un Oscar scientifique et d'ingénieurerie pour son développement. La même année,
+                        "The Old Mill" a remporté l'Oscar du meilleur court métrage d'animation
+                    </p>
+                    <p>
+                        Avec l'avènement de longs métrages d'animation tels que Blanc Comme Neige et les Sept Nains
+                        (1937), Pinocchio (1940) , et Bambi (1942), la caméra Multiplan est devenu un atout clé dans la
+                        création d'un espace plus crédible pour l'œuvre de plus en plus qualifiée et l'esthétique des
+                        personnages produit par Disney. En tant qu'êtres humains et animaux, ils sont devenus plus
+                        naturaliste et le paysage est devenu de plus en plus détaillée, une profondeur d'images
+                        photographiques de style a contribué à créer un monde plus crédible pour ces objets et
+                        personnages inanimés. La caméra multiplane a également permis l'utilisation de nouveaux types
+                        d'effets spéciaux dans les films d'animation. Le mouvement de l'eau et le scintillement des
+                        étoiles ou des feux ont été rendues possibles par la possibilité de superposition du dispositif.
+                    </p>
+                    <div class="clear"></div>
+                    <img class="img-md" src="./images/cropped-wallhaven-fallout-4-01-3-1536x922.jpg" />
+                </main>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <section>
+            <h2>Sitemap</h2>
+            <ul>
+                <li>
+                    <a href="./index.html" target="_self" title="Lien vers la page d'accueil">
+                        Accueil
+                    </a>
+                </li>
+                <li>
+                    <a href="./media.html" target="_self" title="Lien vers Media et documents">
+                        Media
+                    </a>
+                </li>
+                <li>
+                    <a href="./article.html" target="_self" title="Lien vers Un exemple d'article">
+                        Article
+                    </a>
+                </li>
+                <li>
+                    <a href="./formulaire.html" target="_self" title="Lien vers Formulaire de contact">
+                        Formulaire
+                    </a>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h2>Qui sommes-nous ?</h2>
+            <ul>
+                <li>
+                    <a href="#">CGU</a>
+                </li>
+                <li>
+                    <a href="#">CGV</a>
+                </li>
+                <li>
+                    <a href="#">Blog</a>
+                </li>
+            </ul>
+        </section>
+        <section>
+            &copy; Dawan 10-2022
+        </section>
+    </footer>
+</body>
+
+</html>

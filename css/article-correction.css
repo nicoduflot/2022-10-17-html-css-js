@@ -1,0 +1,54 @@
+body > main article{
+    width: 100%;
+}
+
+.aside{
+    max-width: 33%;
+}
+
+.left{
+    float: left;
+    margin: 5px 5px 5px 0;
+}
+
+.right{
+    float: right;
+    margin: 5px 0 5px  5px;
+}
+
+.clear{
+    clear: both;
+}
+
+.img-md{
+    max-width: 300px;
+    width: 100%;
+}
+
+aside{
+    background-color: var(--bg-main-nav);
+    border: 1px solid var(--tab-border);
+    border-radius: 5px;
+}
+
+aside h3{
+    text-align: center;
+}
+
+figure{
+    padding: 0;
+    text-align: center;
+}
+
+aside table td, aside table th{
+    padding: 2px;
+}
+
+aside table th{
+    text-align: left;
+    width: 33%;
+}
+
+aside table td{
+    vertical-align: top;
+}
