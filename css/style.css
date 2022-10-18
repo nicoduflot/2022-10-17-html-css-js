@@ -82,6 +82,8 @@ si 2em = 32 px, 1em = 16px
     --color-title: darkgreen;
     --link-color: darkred;
     --bg-main-nav: rgb(197, 197, 197);
+    --tab-active: rgb(223, 223, 223);
+    --tab-border: rgb(172, 171, 171);
 }
 
 *{
@@ -134,21 +136,30 @@ body{
     margin: 0;
 }
 
+body > header{
+    height: 100vh;
+    height: calc( 100vh - 2rem );
+}
+
 #navigation-principale ul{
     display: flex;
+    flex-wrap: wrap;
     line-height: 2rem;
     background-color: var(--bg-main-nav);
 }
+
+
 
 #navigation-principale ul a,
 #navigation-principale ul a:visited{
     padding-left: 15px;
     padding-right: 15px;
     display: block;
+
 }
 
-#navigation-principale ul a:hover,
-#navigation-principale ul a:focus{
+#navigation-principale ul a:hover:not(.active),
+#navigation-principale ul a:focus:not(.active){
     background-color: var(--link-color);
     color: var(--bg-main-nav);
 }
