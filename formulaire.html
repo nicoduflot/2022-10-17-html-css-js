@@ -140,20 +140,22 @@
                         </fieldset>
                         <fieldset>
                             <legend>Votre demande</legend>
-                            <label for="type-demande">Sélectionnez le type de votre demande</label>
-                            <select name="type-demande" id="type-demande" aria-describedby="info-type-demande">
-                                <option value="">Séléction d'un type de demande</option>
-                                <optgroup label="Produit">
-                                    <option value="devis-produit">Devis sur un produit</option>
-                                    <option value="sav-produit">SAV sur un produit</option>
-                                    <option value="info-produit">Information sur un produit</option>
-                                </optgroup>
-                                <optgroup label="Prestation">
-                                    <option value="devis-prestation">Devis sur une prestation</option>
-                                    <option value="sav-prestation">SAV sur une prestation</option>
-                                    <option value="info-prestation">Information sur  une prestation</option>
-                                </optgroup>
-                            </select>
+                            <p>
+                                <label for="type-demande">Sélectionnez le type de votre demande</label>
+                                <select name="type-demande" id="type-demande" aria-describedby="info-type-demande">
+                                    <option value="">Séléction d'un type de demande</option>
+                                    <optgroup label="Produit">
+                                        <option value="devis-produit">Devis sur un produit</option>
+                                        <option value="sav-produit">SAV sur un produit</option>
+                                        <option value="info-produit">Information sur un produit</option>
+                                    </optgroup>
+                                    <optgroup label="Prestation">
+                                        <option value="devis-prestation">Devis sur une prestation</option>
+                                        <option value="sav-prestation">SAV sur une prestation</option>
+                                        <option value="info-prestation">Information sur  une prestation</option>
+                                    </optgroup>
+                                </select>
+                            </p>
                             <div class="form-info" id="info-type-demande">
                                 Sélectionnez le type de demande que vous souhaitez nous faire parvenir
                             </div>
@@ -165,14 +167,14 @@
                                 </div>
                             </p>
                             <p>
-                                <label for="entite">Particulier ?</label><br />
-                                <input type="radio" name="entite" id="entite" value="physique" checked> : OUI<br />
-                                <input type="radio" name="entite" id="entite" value="morale"> : NON
+                                <label for="entite" class="form-fluid">Particulier ?</label>
+                                <input type="radio" name="entite" id="entite" value="physique" checked> <label class="chb-label">OUI</label>
+                                <input type="radio" name="entite" id="entite" value="morale"> <label class="chb-label">NON</label>
                             </p>
                             <p>
-                                <label>Voie de communication pour réponse</label><br />
-                                <input type="checkbox" name="com-email" id="com-email" checked> Email<br />
-                                <input type="checkbox" name="com-tel" id="com-tel" > Téléphone
+                                <label class="form-fluid">Voie de communication pour réponse</label>
+                                <input type="checkbox" name="com-email" id="com-email" checked> <label class="chb-label">Email</label>
+                                <input type="checkbox" name="com-tel" id="com-tel" > <label class="chb-label">Téléphone</label>
                             </p>
                         </fieldset>
                         <p>
