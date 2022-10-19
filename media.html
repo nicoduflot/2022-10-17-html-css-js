@@ -16,6 +16,7 @@
         que les source de sctipt javascript (JS)
     -->
     <link rel="stylesheet" href="./css/style.css" media="all" />
+    <script src="./js/script.js"></script>
 </head>
 
 <body>
@@ -57,11 +58,13 @@
                 </header>
                 <main>
                     <h3>Une vidéo, un format</h3>
-                    <video 
-                        src="./media/Fallout-4-Launch-Trailer.mp4" 
-                        controls 
-                        poster="./images/cropped-wallhaven-fallout-4-01-3-1536x922.jpg" 
-                        preload="auto"></video>
+                    <figure>
+                        <video src="./media/Fallout-4-Launch-Trailer.mp4" controls
+                            poster="./images/cropped-wallhaven-fallout-4-01-3-1536x922.jpg" preload="auto"></video>
+                        <figcaption>
+                            Trailer de lancement du jeu Fallout 4
+                        </figcaption>
+                    </figure>
                     <p>
                         Au niveau de l'accessibilité, une vidéo doit :
                     </p>
@@ -75,12 +78,18 @@
                         Format : taille d'affichage, extension (.webm, .mp4, mkv, etc...)
                     </p>
                     <p>
-                        Une même vidéo peut-être proposée sous différents fichiers, formats et c'est le navigateur qui déterminera le fichier le plus adapté (carte vidéo, connexion internet, etc)
+                        Une même vidéo peut-être proposée sous différents fichiers, formats et c'est le navigateur qui
+                        déterminera le fichier le plus adapté (carte vidéo, connexion internet, etc)
                     </p>
-                    <video controls preload="auto">
-                        <source src="./media/Big_Buck_Bunny_360_10s_1MB.webm" type="video/webm" />
-                        <source src="./media/Big_Buck_Bunny_360_10s_1MB.mp4" type="video/mp4" />
-                    </video>
+                    <figure>
+                        <video controls preload="auto">
+                            <source src="./media/Big_Buck_Bunny_360_10s_1MB.webm" type="video/webm" />
+                            <source src="./media/Big_Buck_Bunny_360_10s_1MB.mp4" type="video/mp4" />
+                        </video>
+                        <figcaption>
+                            Une vidéo du festival d'Annecy
+                        </figcaption>
+                    </figure>
                 </main>
                 <footer>
                     <a href="./article.html">
@@ -95,7 +104,62 @@
                     <h2>Vidéos hébergées sur un site tier</h2>
                 </header>
                 <main>
-                    
+                    <h3>Youtube</h3>
+                    <figure class="video">
+                        <iframe src="https://www.youtube.com/embed/OKf7dUROnOs" title="YouTube video player"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </figure>
+                    <h3>Dailymotion</h3>
+                    <figure class="video">
+                        <iframe frameborder="0" type="text/html" src="https://www.dailymotion.com/embed/video/x8eotx6"
+                            width="100%" height="100%" allowfullscreen></iframe>
+                    </figure>
+                    <br />
+                    <div style="height: 200px; overflow:auto; border:1px solid black">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam ducimus molestias dicta
+                            voluptatibus, sapiente laboriosam dolor impedit provident ex neque aperiam maiores sed aut
+                            velit natus. Fuga ipsa sapiente voluptatem!
+                        </p>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione excepturi maiores autem
+                            quae ab illum fuga laborum itaque exercitationem nisi, minus odio alias voluptatem
+                            accusantium ipsum libero. Eveniet, illo dolores!
+                        </p>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione excepturi maiores autem
+                            quae ab illum fuga laborum itaque exercitationem nisi, minus odio alias voluptatem
+                            accusantium ipsum libero. Eveniet, illo dolores!
+                        </p>
+                    </div>
+                </main>
+            </article>
+            <article>
+                <header>
+                    <h2>Les iframes</h2>
+                </header>
+                <main>
+                    <p>
+                        Ce sont des cadres qui permettent d'appeler dans la page actuelle d'autres pages d'autres sites
+                        à la condition que les pages visée soient autorisée en partage.
+                    </p>
+                    <p>
+                        Une iframe permet aussi d'afficher des document hébergé sur le site
+                    </p>
+                    <figure class="video">
+                        <iframe src="./documents/CRAM.pdf"></iframe>
+                    </figure>
+                    <p>
+                        <a href="./documents/CRAM.pdf">lien vers le document</a>
+                    </p>
+                    <figure class="video">
+                        <iframe src="./documents/texte.txt"></iframe>
+                    </figure>
+                    <p>
+                        <a href="./documents/texte.txt">lien vers le document</a>
+                    </p>
                 </main>
                 <footer>
                     <a href="./article.html">
@@ -110,7 +174,14 @@
                     <h2>l'audio hébergé sur le site</h2>
                 </header>
                 <main>
-                    
+                    <figure>
+                        <img src="./images/diablo_02.jpg" />
+                        <figcaption>
+                            <audio controls>
+                                <source src="./media/diablo_town.mp3" type="audio/mp3" />
+                            </audio>
+                        </figcaption>
+                    </figure>
                 </main>
                 <footer>
                     <a href="./article.html">
@@ -125,7 +196,23 @@
                     <h2>l'audio hébergé sur un site tier</h2>
                 </header>
                 <main>
-                    
+                    <h3>Spotify</h3>
+                    <figure class="video">
+                        <iframe 
+                        style="border-radius:12px" 
+                        src="https://open.spotify.com/embed/track/11cPCZ0BYWJmAm7N8eDxtu?utm_source=generator&theme=0" 
+                        width="100%" 
+                        height="152" 
+                        frameBorder="0" 
+                        allowfullscreen="" 
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                        loading="lazy"></iframe>
+                    </figure>
+                    <h3>Bandcamp</h3>
+                    <iframe 
+                        style="border: 0; width: 100%; height: 120px;" 
+                        src="https://bandcamp.com/EmbeddedPlayer/album=2693149983/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/transparent=true/" 
+                        seamless><a href="https://psykokondriak.bandcamp.com/album/machines">Machines by Psykokondriak</a></iframe>
                 </main>
                 <footer>
                     <a href="./article.html">

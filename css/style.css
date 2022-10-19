@@ -111,6 +111,32 @@ img, video{
     max-width: 100%;
 }
 
+figure.video{
+    margin: 0;
+    position:relative;
+    padding-bottom:56.25%;
+    height:0;
+    overflow:hidden;
+}
+
+figure.video iframe{
+    width:100%;
+    height:100%;
+    position:absolute;
+    left:0px;
+    top:0px;
+    overflow:hidden;
+}
+
+.red-h1{
+    color: darkred;
+}
+
+audio{
+    width: 100%;
+    height: 25px;
+}
+
 .ombre-texte{
     width:100px;
     height: 100px;

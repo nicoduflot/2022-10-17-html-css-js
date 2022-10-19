@@ -1,0 +1,12 @@
+Ceci est un fichier texte.
+
+Il peut être ouvert par le navigateur.
+
+<h2>Est-ce que les titres fonctionnent ?</h2>
+
+<p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam ducimus molestias dicta voluptatibus, sapiente laboriosam dolor impedit provident ex neque aperiam maiores sed aut velit natus. Fuga ipsa sapiente voluptatem!
+</p>
+<p>
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione excepturi maiores autem quae ab illum fuga laborum itaque exercitationem nisi, minus odio alias voluptatem accusantium ipsum libero. Eveniet, illo dolores!
+</p>
