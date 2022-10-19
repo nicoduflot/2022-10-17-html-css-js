@@ -25,14 +25,44 @@ body > main article{
     width: 100%;
 }
 
-#tableau1{
+.tableau1{
     border-collapse: collapse;
 }
 
-#tableau1 td, 
-#tableau1 th{
+.tableau1 td, 
+.tableau1 th{
     border: 1px solid black;
 }
+
+.tableau2{
+    border-collapse: collapse;
+}
+
+.tableau2 caption{
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    line-height: 1.5rem;
+}
+
+.tableau2 td, 
+.tableau2 th{
+    border: 1px solid black;
+}
+
+.tableau2.rayure{
+    width: 80%;
+}
+
+.tableau2.rayure tbody tr:nth-of-type(odd){
+    background-color: rgba(0, 0, 0, 0.35);
+}
+
+.tableau2.rayure tr td:first-child{
+    width: 30%;
+}
+
+
 
 aside{
     background-color: var(--bg-main-nav);
