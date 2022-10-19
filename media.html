@@ -56,7 +56,31 @@
                     <h2>Vidéos hébergées</h2>
                 </header>
                 <main>
-                    
+                    <h3>Une vidéo, un format</h3>
+                    <video 
+                        src="./media/Fallout-4-Launch-Trailer.mp4" 
+                        controls 
+                        poster="./images/cropped-wallhaven-fallout-4-01-3-1536x922.jpg" 
+                        preload="auto"></video>
+                    <p>
+                        Au niveau de l'accessibilité, une vidéo doit :
+                    </p>
+                    <ul>
+                        <li>- Toujours posséder des sous-titres</li>
+                        <li>- Si possible une transcription de ce qui est dit disponible en un clic</li>
+                        <li>- éviter l'autoplay sur les vidéo</li>
+                    </ul>
+                    <h3>une vidéo, plusieurs formats</h3>
+                    <p>
+                        Format : taille d'affichage, extension (.webm, .mp4, mkv, etc...)
+                    </p>
+                    <p>
+                        Une même vidéo peut-être proposée sous différents fichiers, formats et c'est le navigateur qui déterminera le fichier le plus adapté (carte vidéo, connexion internet, etc)
+                    </p>
+                    <video controls preload="auto">
+                        <source src="./media/Big_Buck_Bunny_360_10s_1MB.webm" type="video/webm" />
+                        <source src="./media/Big_Buck_Bunny_360_10s_1MB.mp4" type="video/mp4" />
+                    </video>
                 </main>
                 <footer>
                     <a href="./article.html">
