@@ -46,7 +46,7 @@
         les boucles permettent de parcourir les éléments itérables selon un pas (tous les x éléments)
         */
         console.log('--------- boucle for ----------');
-        for(let i = 0; i < cars.length; i++){
+        for (let i = 0; i < cars.length; i++) {
             console.log(` la valeur du tableau cars à l'index ${i} est ${cars[i]} `);
         }
 
@@ -54,7 +54,291 @@
         créer un tableau de données et afficher chaque valeur du tableau dans la console
         */
 
+        let marques = ['Chanel', 'Dior', 'LV', 'Guucci'];
+        console.log(marques);
+        console.log(marques[0]);
+
+        console.log(`${marques.length} élément(s) dans marques`);
+        marques.push('Guess', 'Nike');
+        console.log(marques);
+
+        console.log(`${marques.length} élément(s) dans marques`);
+
+        for (let i = 0; i < marques.length; i++) {
+            console.log(`${i} : ${marques[i]}`);
+        }
+
+        console.log('--------- boucle for in ----------');
+        for (index in cars) {
+            console.log(` la valeur du tableau cars à l'index ${index} est ${cars[index]} `);
+        }
+
+        console.log('--------- boucle for of (es6) ----------');
+        for (value of cars) {
+            console.log(` la valeur actuelle du tableau cars est ${value} `);
+        }
+
+        console.log('--------- do while ----------');
+        /*
+        faire .... tant que  (condition n'est pas remplie)
+        implique que le traitement est fait une fois avant de vérifier que la condition est remplie
+        */
+        let cpt = 0;
+        do {
+            console.log(cars[cpt]);
+            cpt++;
+        } while (cpt < cars.length)
+
+        console.log(`cpt s'est arrêté à ${cpt}`);
+        console.log('--------- while ----------');
+        cpt = 0;
+        while (cars[cpt] !== 'Peugeot') {
+            console.log(cars[cpt]);
+            cpt++;
+        }
+
+        console.log(`cpt s'est arrêté à ${cpt}`);
+
+        console.log('--------- forEach ----------');
+        cars.forEach(function (value, index, tab) {
+            console.log(index, value);
+            console.log(tab);
+        });
+
+
+        tabNum = [1, 2, 3, 4, 5];
+        console.log(tabNum);
+        tabNum.forEach(function (value, index, tab) {
+            tab[index] = value * 1.2;
+            console.log(tab);
+        });
+        console.log('tabNum après le traitement du forEach', tabNum);
+
+        // es6 .entries()
+        /*
+        Vient du modèle objet. permet d'extraire les clefs et les valeurs 
+        d'un tableau sous forme de tableau pour chaque élément du tableau parcouru
+        */
+        console.log('------ méthode es6 .entries()');
+        for (entry of cars.entries()) {
+            console.log(entry);
+            console.log(entry[0], entry[1]);
+        }
+
+        // ajout d'éléments
+
+        cars[cars.length] = 'Hyundai'; // ça marche mais ce n'est pas la bonne méthode
+
+        cars.push('Seat');
+        cars.push('Fiat', 'Toyota');
+
+        console.log(cars);
+
+        // supprimer des valeurs dans un tableau
+        // .pop(), .shift(), .splice()
+
+        // .pop() => extrait du tableau la dernière valeur
+        let extractLast = cars.pop();
+        console.log(extractLast);
+        console.log(cars);
+
+        // .shift() => extrait la première valeur du tableau, réorganise les valeurs dans les index, supprime la dernière "case" du tableau
+        let extractFirst = cars.shift();
+        console.log(extractFirst);
+        console.log(cars);
+
+        // .splice() extrait une ou plusieurs valeur d'un tableau, et peut aussi réinsserer d'autre valeur à lapplace des données extraite.
+        // .slice() 1 : extraire des valeur d'un tableau => retourne
+        let removed = cars.splice(2, 2);
+        console.log(removed);
+        console.log(cars);
+
+        //.splice() 2 : on enlève des valeur et à partir de la prmière valeur retirée, on ajoute X valeur
+        console.log(cars.indexOf('Hyundai'));
+        let replaced = cars.splice(cars.indexOf('Hyundai'), 2, 'Alpine', 'Mazda');
+        console.log(replaced);
+        console.log(cars);
+
+        //.splice() 3 : pour inserrer des valeur dans un tableau sans en retirer
+        cars.splice(cars.indexOf('Kawasaki'), 0, extractLast, extractFirst, removed[0], removed[1], replaced[0], replaced[1]);
+        console.log(cars);
+
+        let maValeur = 155;
+        let autreValeur = maValeur;
+        console.log(maValeur, autreValeur);
+        maValeur = maValeur + 3;
+        console.log(maValeur, autreValeur);
+
+        // comment créer une copie d'un tableau
+        /*
+                let carsClone = cars; // ça ne crée pas un autre tableau, mais crée un alias du tableau
+                console.log(carsClone, cars);
+                carsClone.push('Volkswagen');
+                console.log(carsClone, cars);
+        */
+        // .slice()
+        let carsClone = cars.slice();
+        console.log(carsClone, cars);
+        carsClone.push('Volkswagen');
+        console.log(carsClone, cars);
+        let tabSlice = cars.slice(2, 6);
+        console.log(tabSlice, cars);
+
+        // les tableaux à 2 dimension n'existent pas litérallement en JS
+        let tab2d = [['a', 'b', 'c'], [12, 13, 56, 45], [25, 65, 'coucou']];
+        console.log(tab2d);
+        console.table(tab2d);
+
+        console.log('----------- parcourir un tableau à \'2\' dimensions');
+        for (let i = 0; i < tab2d.length; i++) {
+            //console.log(tab2d[i]);
+            for (let j = 0; j < tab2d[i].length; j++) {
+                console.log(tab2d[i][j]);
+            }
+        }
+
+        // trier les tableau
+        console.log(`avant le tri ascendant carsClone : ${carsClone}`);
+        console.log(carsClone);
+        carsClone.sort();
+        console.log(`après le tri ascendant carsClone : ${carsClone}`);
+        console.log(carsClone);
+
+        console.log(`avant le tri descendant carsClone : ${carsClone}`);
+        console.log(carsClone);
+        carsClone.reverse();
+        console.log(`après le tri descendant carsClone : ${carsClone}`);
+        console.log(carsClone);
+
+        // les conditions
+        console.log('----------- la condition si (sinon) ---------------');
+        // si (sinon)
+        maValeur = 45;
+        if (maValeur > 60) {
+            console.log('la valeur est supérieure à 60');
+        } else {
+            console.log('la valeur est inférieure ou égale à 60');
+        }
+
+        if (maValeur < 60) {
+            console.log('la valeur est inférieur à 60');
+        }
+
+        console.log('----------- la condition selon une valeur, faire ---------------');
+        let monParfum = 'Chocolat';
+
+        function testParfum(parfum) {
+            switch (parfum) {
+                case 'vanille':
+                    console.log(`${parfum} rime avec gerbille`);
+                    break;
+                case 'poire':
+                case 'malabar':
+                    console.log(`${parfum} rime avec mangeoire`);
+                    break;
+                case 'Chocolat':
+                    console.log(`${parfum} rime avec beluga`);
+                    break;
+                case 'Fraise':
+                    console.log(`${parfum} rime avec balaise`);
+                    break;
+                default:
+                    console.log(`${parfum} n'est pas en vente chez nous`);
+            }
+        }
+
+        testParfum(monParfum);
+        monParfum = 'malabar';
+        testParfum(monParfum);
+        testParfum('Rhum raisin');
+
+        function testParfum2(parfum) {
+            let retourTest = null;
+            switch (parfum) {
+                case 'vanille':
+                    retourTest = `${parfum} rime avec gerbille`;
+                    break;
+                case 'poire':
+                case 'malabar':
+                    retourTest = `${parfum} rime avec mangeoire`;
+                    break;
+                case 'Chocolat':
+                    retourTest = `${parfum} rime avec beluga`;
+                    break;
+                case 'Fraise':
+                    retourTest = `${parfum} rime avec balaise`;
+                    break;
+                default:
+                    retourTest = `${parfum} n'est pas en vente chez nous`;
+            }
+            return retourTest;
+        }
+
+        testParfum2('Chocolat'); // équivalent d'une variable qui contient le retour de la fonction
+
+        console.log(testParfum2('Chocolat'));
+
+        // il existe un si "raccourci" => ternaire
+        // (condition a tester)? resultat si vrai: resultat si faux;
+        let resTernaire = (1===1)?'1 === 1 c\'est vrai' : '1 === 1 c\'est faux';
+        console.log(resTernaire);
+        resTernaire = (1==='1')?'1 === 1 c\'est vrai' : '1 === \'1\' c\'est faux';
+        console.log(resTernaire);
+        (monParfum != '')? testParfum(monParfum) : console.log('il n\'y a rien a tester');
+        monParfum = 'vanille';
+        console.log((monParfum != '')? testParfum2(monParfum) : 'il n\'y a rien a tester');
+
+        let fonctionAnonyme = function(){
+            console.log('coucou');
+        };
+
+        fonctionAnonyme();
+
+        // fonction anonym auto-exécutée
+        /*
+        (
+            fonction anonyme
+        )(
+            paramètre de la fonction si il y en a
+        )
+        */
+
+        (
+            function(){
+                console.log(`coucou tout le monde`);
+            }
+        )();
+
+        (
+            function(name){
+                console.log(`coucou ${name}`);
+            }
+        )('Nicolas');
+
+        /*
+        exercice
         
+        créer un code qui va parcourir un tableau de données [tableauDeFruits] et 
+        renvoyer une liste des doublons dans le tableau de résultats [tableauxDoublons]
+
+        */
+
+        let tableauDeFruits = [
+            'banane',
+            'fraise',
+            'tomate',
+            'pêche',
+            'banane',
+            'tomate',
+            'banane',
+            'fraise',
+            'tomate',
+            'pêche',
+            'banane',
+            'tomate'
+        ];
+
+        let tableauxDoublons = [];
 
     </script>
 </head>
@@ -100,8 +384,7 @@
                 </a>
             </li>
             <li>
-                <a href="./javascript-tableaux.html" target="_self" 
-                title="Lien vers les tableaux">
+                <a href="./javascript-tableaux.html" target="_self" title="Lien vers les tableaux">
                     Les tableaux
                 </a>
             </li>
@@ -158,8 +441,8 @@
                     </a>
                 </li>
                 <li>
-                    <a href="./javascript-structures-ctrl.html" target="_self" 
-                    title="Lien vers les structures de contrôle">
+                    <a href="./javascript-structures-ctrl.html" target="_self"
+                        title="Lien vers les structures de contrôle">
                         Structures de contrôle
                     </a>
                 </li>
