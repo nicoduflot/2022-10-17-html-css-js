@@ -351,6 +351,24 @@
         fin parcourir chaque élément du tableau
         */
 
+        tableauDeFruits.sort();
+        console.table(tableauDeFruits);
+        let cptElement = 1;
+
+        tableauDeFruits.forEach( function(element, index, tab){
+            /* si l'élément en cours est == à l'élément suivant */
+            if(element === tab[index+1]){
+                /* cptFruit augment de 1 */
+                cptElement = cptElement + 1;
+            }else{
+            /* sinon */
+                /* le tableau des doublon reçoit dans une case ce fruit existe cptFruit fois */
+                tableauxDoublons.push(` ${element} existe ${cptElement} fois `);
+                cptElement = 1;
+            }
+        });
+
+        console.table(tableauxDoublons);
 
     </script>
 </head>
