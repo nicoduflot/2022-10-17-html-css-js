@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--
+        Espace de commentaire
+    -->
+    <meta keywords="Formation html CSS, HTML, CSS, HTML5, CSS3" />
+    <meta description="Première page de la Formation html CSS, bases pratiques des balises sémantique" />
+    <title>Formation HTML5 - CSS3</title>
+    <!-- 
+        C'est aussi dans la partie head (entête du document) où 
+        sont indiqués les fichiers CSS de mise en forme ainsi
+        que les source de sctipt javascript (JS)
+    -->
+    <link rel="stylesheet" href="./css/style.css" media="all" />
+    <style>
+        body>main article {
+            width: 100%;
+        }
+    </style>
+    <!--<script language="javascript" src="./js/script.js"></script>-->
+    <script language="javascript">
+        // script JS dans la page
+        // commentaire en une ligne
+        /*
+        commentaire en bloc
+        */
+
+        // déclaration d'une variable
+        var prenom = 'jean';
+        console.log(prenom);
+        console.log(typeof(prenom));
+        prenom = 12;
+        console.log(typeof(prenom));
+        prenom = prenom + '12'; 
+        /* attention au transtypage : changement du type de la variable par rapport à son contenu ou à une concaténation involontaire */
+        console.log(prenom);
+
+        let nom = 'Neige';
+        console.log(nom);
+
+        function test(){
+            console.log('-------- fonction test ---------');
+            let nom = 'dudu';
+            var prenom = 'toto';
+            console.log(nom);
+            console.log(prenom);
+        }
+
+        test();
+        console.log(nom);
+        console.log(prenom);
+
+        /*
+        Attention au transtypage => par exemple la concaténation string et number ça transforme la variable en string
+        */
+
+        console.log('papa' + ' ' + 'toto');
+        console.log(1 + 2);
+        console.log(nom + 1 + 2);
+        console.log('1' + 1 + 2);
+        console.log('avec l\'aopstrophe');
+        /* 
+        La concaténation ne doit plus se faire avec des + quand on mélange nombres et chaîne 
+        On va utiliser l'interpolation de texte, qui permet plus de souplesse dans les affichage, concaténation et même exécution de fonction
+        */
+        console.log( `l'interpolation de texte c'est : ${nom} ${1+2} ` );
+        console.log( `papa` ); // toléré mais pas dans les bonnes pratique
+        console.log( 'papa' ); // bonne pratique, s'il n'y a pas besoin de concaténation, on n'utilise pas l'interpolation de texte
+
+
+    </script>
+</head>
+
+<body>
+    <style>
+        .rouge-gras {
+            color: darkred;
+            font-weight: bold;
+        }
+    </style>
+    <header>
+        <h1>Formation HTML5 - CSS3</h1>
+    </header>
+    <nav id="navigation-principale">
+        <!-- 
+            Balise sémantique indiquant la présence d'une navigation dans le site
+        -->
+        <ul>
+            <li>
+                <a href="./index.html" class="active" target="_self" title="Lien vers la page d'accueil">
+                    Accueil
+                </a>
+            </li>
+            <li>
+                <a href="./media.html" target="_self" title="Lien vers Media et documents">
+                    Media
+                </a>
+            </li>
+            <li>
+                <a href="./article-correction.html" target="_self" title="Lien vers Un exemple d'article">
+                    Article
+                </a>
+            </li>
+            <li>
+                <a href="./formulaire.html" target="_self" title="Lien vers Formulaire de contact">
+                    Formulaire
+                </a>
+            </li>
+            <li>
+                <a href="./javascript-intro.html" target="_self" title="Lien vers l'intro en Javascript">
+                    Javascript intro
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <article>
+                <header>
+                    <h2>Le javascript : Introduction</h2>
+                </header>
+                <main>
+                    <h3>Ecmascript</h3>
+                    <p>
+                        Ecmascript (es) est une norme sur laquelle s'appuie JS. (ActionScript => flash, TypeScript).
+                    </p>
+                    <p>
+                        La dernière norme ecmascript es7 (2017, très peu de différences avec es6)
+                    </p>
+                    <ul>
+                        <li>es1 - 1997</li>
+                        <li>es2 - 1999</li>
+                        <li>es4 - version abandonnée</li>
+                        <li>es5 - 2009</li>
+                        <li>es6 - 2015</li>
+                        <li>es7 - 2017</li>
+                    </ul>
+                    <p>
+                        Jusqu'en 2010, JS était mal considéré par les développeurs ( peu normé, trop permissif )
+                    </p>
+                    <p>
+                        L'arrivée de Google Chrome, avec en plus l'envie de Google de refaire fonctionner correctement JS.
+                        Création du moteur d'interprétation V8.
+                        => un boost des capacitées de JS et son éxécution
+                    </p>
+                    <p>
+                        Grâce au V8, des nouveau langages ou méthode de développement sont arrivées, notemment NodeJs (2009), 
+                        qui s'appuis sur JS mais s'éxécute sur le serveur
+                    </p>
+                    <p>
+                        La convention du code en es6 est visible sur Github 
+                        <a href="https://github.com/elierotenberg/coding-styles/blob/master/es6.md" 
+                        target="_blank">
+                            es6
+                        </a>
+                    </p>
+                </main>
+                <footer>
+                    <a href="./article.html">
+                        <button role="link">
+                            Lire la suite
+                        </button>
+                    </a>
+                </footer>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <section>
+            <h2>Sitemap</h2>
+            <ul>
+                <li>
+                    <a href="./index.html" target="_self" title="Lien vers la page d'accueil">
+                        Accueil
+                    </a>
+                </li>
+                <li>
+                    <a href="./media.html" target="_self" title="Lien vers Media et documents">
+                        Media
+                    </a>
+                </li>
+                <li>
+                    <a href="./article.html" target="_self" title="Lien vers Un exemple d'article">
+                        Article
+                    </a>
+                </li>
+                <li>
+                    <a href="./formulaire.html" target="_self" title="Lien vers Formulaire de contact">
+                        Formulaire
+                    </a>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h2>Qui sommes-nous ?</h2>
+            <ul>
+                <li>
+                    <a href="#">CGU</a>
+                </li>
+                <li>
+                    <a href="#">CGV</a>
+                </li>
+                <li>
+                    <a href="#">Blog</a>
+                </li>
+            </ul>
+        </section>
+        <section>
+            &copy; Dawan 10-2022
+        </section>
+    </footer>
+</body>
+
+</html>
