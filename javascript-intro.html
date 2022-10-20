@@ -71,7 +71,139 @@
         console.log( `papa` ); // toléré mais pas dans les bonnes pratique
         console.log( 'papa' ); // bonne pratique, s'il n'y a pas besoin de concaténation, on n'utilise pas l'interpolation de texte
 
+        /* 
+        mini exercice : 
+        créer une variable avec un nombre
+        créer une variable avec du texte
+        afficher les variables en console
+        afficher le résultat de la variable nombre + 3
+        afficher la variable texte et le résultat de la variable nombre -6
+        */
 
+        let nombre = 37;
+        let texte = 'j\'aime le javascript';
+        console.log(nombre);
+        console.log(texte);
+        console.log(nombre + 3);
+        console.log( ` ${texte} ${nombre-6} ` );
+
+        /*
+        JS est un langage protptypé => qui repose sur les objets
+        */
+
+        let tab = ['ert', 'rtbf', 12];
+        console.log(tab);
+        console.log(tab.length);
+        console.log(typeof(nombre));
+        console.log(typeof(nombre.toString())); 
+        /* le type du résultat du nombre en chaine mais nombre n'est pas impacté, il rest de type number */
+        nombre = nombre.toString();
+        /* en revanche, si nombre reçoit le résultat de lui-même transtypé en chaine, son type passe de number à string */
+        console.log(typeof(nombre));
+        nombre = parseFloat(nombre);
+        console.log(typeof(nombre));
+        
+        // constante = variables de paramétrage, qui une fois définies ne sont plus modifiées
+        const SERVERHOST01 = 'site 01' 
+        const SERVERHOST02 = 'site 02' 
+        const SERVERHOST03 = 'site 03' 
+
+        const SERVERUSER01 = 'usr01'
+        const SERVERUSER02 = 'usr02'
+        const SERVERUSER03 = 'usr03'
+
+        function connServer(variable1, variable2){
+            // code de la fonction
+        }
+
+        connServer(SERVERHOST01, SERVERUSER02);
+        connServer('site 01', 'usr02');
+
+        // JS n'est pas un langage typé par définition : c'est le contenu de la variable qui défini son type
+        /**
+         * Types
+         * [Primitif]
+         * number       => nombre (entier, à virgule flottante)
+         * bool         => booléen (vrai ou faux)
+         * 
+         * [Référence]
+         * String       => chaîne caractère (proche des tableaux)
+         * Array        => tableau de données
+         * Object       => les objets (possèdant attributs et méthodes)
+         * JSON         => JavaScript Object Notation
+         * 
+        */
+
+        // Opérateurs
+        /**
+         * 
+         * Mathématiques
+         * 
+         *  + (addition mais aussi sert à la concaténation => attention au transtypage)
+         *  - 
+         *  / 
+         *  %
+         *  *  2*3 = 6
+         *  ** 2 puissance 3 => 2**3 = 8
+         *  => Math.pow(2, 3);
+         * 
+         *  incrémentation
+         *  let i = 0;
+         *  i = i + 1;
+         *  i++ ou ++i
+         * 
+         *  i = 5;
+         *  i = i - 1;
+         *  => i-- ou --i;
+         * 
+        */
+
+        let nombreIncrement = 11; // maVariableDeCalcul => écriture de nom de variable camelCase
+        console.log('nombreIncrement = ', nombreIncrement); // affiche 11
+        console.log('nombreIncrement++ ', nombreIncrement++); // affiche 11 puis passe la valeur à 12
+        console.log('nombreIncrement', nombreIncrement); // affiche 12
+        console.log('++nombreIncrement', ++nombreIncrement); // passe la valeur à 13 puis l'affiche
+
+        /**
+         *  Logique
+         *  && (ET)
+         *  (si les conditions du ET sont toutes vraie, le test renvoi vrai)
+         *  (si au moins une des condition du test est fausse, le test renvoi faux)
+         *  true && true => true
+         *  true && false => false
+         *  false && true => false
+         *  false && false => false
+         * 
+         *  || (OU)
+         *  (si au moins une des condition du test est vraie, le resultat du test est vrai)
+         *  true || true => true
+         *  true || false => true
+         *  false || true => true
+         *  false || false => false
+         * 
+         *  ! (NON)
+         *  a = true, !a = false
+         * 
+         *  ^ (XOR : OU exclusif binaire)
+         * (si au moins une des condition est vrai, le résultat renvoi vrai, MAIS si toutes les condition sont vrai, le resultat du test est faux)
+         * true ^ true => false
+         * true ^ false => true
+         * false ^ true => true
+         * false ^ false => false
+         * 
+         * Comparaison
+         * 
+         * <  > <=  >= compararteurs inférioté, supériorité
+         * 
+         * == égale en valeur
+         * != différend en valeur
+         * 
+         * === égale en valeur et en type (stricte)
+         * !== différent en valeur et en type (stricte)
+         * 
+        */
+
+        
     </script>
 </head>
 
