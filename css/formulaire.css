@@ -60,11 +60,34 @@ form p input[type="radio"]{
     width: 70%;
 }
 
-.form-info{
+.form-info, .form-error{
     font-style: italic;
     border: 2px solid #b6d4fe;
     background-color: #cfe2ff;
     color: #084298;
     padding: 1rem;
     border-radius: 0.375rem;
+}
+
+.form-error{
+    border-color: #f5c2c7;
+    background-color: #f8d7da;
+    display: none;
+}
+
+.hidden{
+    display: none;
+}
+
+#CGV{
+    height: 300px;
+    display: none;
+    overflow: auto;
+    border: 1px solid grey;
+    background-color: beige;
+}
+
+.error-form{
+    border-color: red!important;
+    box-shadow: 0 0 5px red;
 }

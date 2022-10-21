@@ -17,6 +17,146 @@
     -->
     <link rel="stylesheet" href="./css/style.css" media="all" />
     <link rel="stylesheet" href="./css/formulaire.css" media="all" />
+    <script language="javascript">
+        console.log('Début du chargement de la page');
+        //récupérer un élément dans la page avec javascript
+        // getElementById('identifiant')
+        // getElementByName('nom-element')
+        // querySelector('selecteur-CSS')
+        /* 
+        pour agir sur les éléments du DOM : Document Object Model => tous les éléments HTML de la page et le navigateur représentés
+        sous la forme d'objets connectés entre eux par filiation.
+        il faut attendre que le DOM (la page) soit totalement chargé pour pouvoir agir sur ses éléments
+        */
+        /* on ajoute un écouteur d'évènement (addEventListener) au navigateur (window), et on lance le comportement (function(){}) quand le DOM est complètement chargé (DOMContentLoaded) */
+        window.addEventListener('DOMContentLoaded', function () {
+            console.log('DOM chargé');
+            let header = document.querySelector('body > header');
+            console.log(header);
+
+            /* récupération des données d'un évènement */
+            /*
+            document.querySelector('body').addEventListener('click', function(event){
+                console.log(event);
+                console.log(event.target);
+                console.log(event.target.parentNode.parentNode);
+            });
+            */
+
+            /* afficher / cacher les éléments dynamiques du formulaire sous conditions */
+            let typeDemande = document.getElementById('type-demande');
+            typeDemande.addEventListener('change', function () {
+                // ici, this est l'équivalent de la variable typeDemande, qui est l'élément du DOm récupéré
+                console.log(this);
+                console.log(this.value);
+                if (this.value === 'sav-produit') {
+                    document.querySelector('.sav-produit').classList.remove('hidden');
+                } else {
+                    document.querySelector('.sav-produit').classList.add('hidden');
+                }
+            });
+
+            /* vérification des données du formulaire avant envoi */
+
+            /* acceptation des CGV */
+            document.getElementById('open-cgv').addEventListener('click', function (event) {
+                event.preventDefault();
+                console.log('affichage des cgv');
+                document.getElementById('CGV').style.setProperty('display', 'block');
+            });
+
+            /* guetter le clic sur le bouton d'envoi du formulaire */
+            let envoi = document.getElementById('envoi');
+            console.log(envoi);
+            envoi.addEventListener('click', function (event) {
+                event.preventDefault();
+                let messageErreur = '';
+                let error = false;
+                //num-serie | valid-CGV
+                let nom = document.getElementById('nom');
+                if (nom.value === '') {
+                    nom.classList.add('error-form');
+                    messageErreur = messageErreur + 'Le nom est obligatoire<br />';
+                    error = true;
+                } else {
+                    nom.classList.remove('error-form');
+                }
+
+                let email = document.getElementById('email');
+                if (email.value === '') {
+                    email.classList.add('error-form');
+                    messageErreur = messageErreur + 'L\'email est obligatoire<br />';
+                    error = true;
+                } else {
+                    let tabEmailArobase = email.value.split('@');
+                    console.log(tabEmailArobase);
+                    if (tabEmailArobase.length != 2) {
+                        error = true;
+                        email.classList.add('error-form');
+                        messageErreur = messageErreur + 'L\'email ne contient pas le caractère @<br />';
+                    } else {
+                        let tabEmailDomain = tabEmailArobase[1].split('.');
+                        if (tabEmailDomain.length < 2) {
+                            error = true;
+                            email.classList.add('error-form');
+                            messageErreur = messageErreur + 'L\'email n\'a pas de domaine d\'indiqué<br />';
+                        }
+                        email.classList.remove('error-form');
+                    }
+
+                }
+
+                let numSerie = document.getElementById('num-serie');
+                if (typeDemande.value === '') {
+                    typeDemande.classList.add('error-form');
+                    messageErreur = messageErreur + 'Le type de demande est obligatoire<br />';
+                    error = true;
+                } else {
+                    typeDemande.classList.remove('error-form');
+                }
+                if (typeDemande.value === 'sav-produit') {
+                    if (numSerie.value === '') {
+                        numSerie.classList.add('error-form');
+                        messageErreur = messageErreur + 'Dans le cas d\'un SAV, le n° de série est obligatoire<br />';
+                        error = true;
+                    } else {
+                        numSerie.classList.remove('error-form');
+                    }
+                }
+
+                let demande = document.getElementById('demande');
+                if(demande.value === ''){
+                    demande.classList.add('error-form');
+                    messageErreur = messageErreur + 'La description de votre demande est obligatoire<br />';
+                    error = true;
+                }else{
+                    demande.classList.remove('error-form');
+                }
+
+                let validCGV = document.getElementById('valid-CGV');
+                console.log(validCGV.checked);
+                if (!validCGV.checked) {
+                    validCGV.classList.add('error-form');
+                    messageErreur = messageErreur + 'Vous devez accepter les CGV pour envoyer le formulaire<br />';
+                    error = true;
+                } else {
+                    validCGV.classList.remove('error-form');
+                }
+
+                let formError = document.getElementById('form-error');
+                if (error) {
+                    console.log(messageErreur);
+                    formError.style.setProperty('display', 'block');
+                    formError.innerHTML = messageErreur;
+                } else {
+                    formError.style.setProperty('display', 'none');
+                    document.getElementById('form-retail').submit();
+                }
+
+            });
+        });
+
+    </script>
 </head>
 
 <body>
@@ -45,7 +185,8 @@
                 </a>
             </li>
             <li>
-                <a href="./article-correction.html" class="active" target="_self" title="Lien vers Un exemple d'article">
+                <a href="./article-correction.html" class="active" target="_self"
+                    title="Lien vers Un exemple d'article">
                     Article
                 </a>
             </li>
@@ -60,8 +201,7 @@
                 </a>
             </li>
             <li>
-                <a href="./javascript-tableaux.html" target="_self" 
-                title="Lien vers les tableaux">
+                <a href="./javascript-tableaux.html" target="_self" title="Lien vers les tableaux">
                     Les tableaux
                 </a>
             </li>
@@ -107,20 +247,13 @@
                         se trouve qui sera la page de traitement.
                     </p>
                     <h2>Notre formulaire</h2>
-                    <form method="get" action="">
+                    <form method="get" action="" id="form-retail">
                         <fieldset>
                             <legend>Civilité</legend>
                             <p>
                                 <label for="nom">Nom :</label>
-                                <input 
-                                    type="text" 
-                                    name="nom" 
-                                    id="nom" 
-                                    autofocus 
-                                    aria-describedby="info-nom" 
-                                    required
-                                    placeholder="Votre nom ici"
-                                    />
+                                <input type="text" name="nom" id="nom" autofocus aria-describedby="info-nom"
+                                    placeholder="Votre nom ici" />
                             </p>
                             <div class="form-info" id="info-nom">
                                 Dans ce champs, veuillez écrire votre nom d'usage.
@@ -128,25 +261,21 @@
 
                             <p>
                                 <label for="prenom">Prénom :</label>
-                                <input type="text" name="prenom" id="prenom" aria-describedby="info-prenom" placeholder="Votre prénom ici" />
+                                <input type="text" name="prenom" id="prenom" aria-describedby="info-prenom"
+                                    placeholder="Votre prénom ici" />
                             </p>
                             <div class="form-info" id="info-prenom">
                                 Dans ce champs, veuillez écrire votre prenom d'usage.
                             </div>
                             <p>
-                                <label for="email">Prénom :</label>
-                                <input 
-                                    type="email" 
-                                    name="email" 
-                                    id="email" 
-                                    aria-describedby="info-email" 
+                                <label for="email">Email :</label>
+                                <input type="email" name="email" id="email" aria-describedby="info-email"
                                     placeholder="Votre email ici"
-                                    pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+.[a-zA-Z.]{2,15}" 
-                                    required
-                                    />
+                                    pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+.[a-zA-Z.]{2,15}" />
                             </p>
                             <div class="form-info" id="info-email">
-                                Dans ce champs, veuillez indiquez votre email, il doit contenir un @ et un domaine ( .co.uk, .com, .fr).
+                                Dans ce champs, veuillez indiquez votre email, il doit contenir un @ et un domaine (
+                                .co.uk, .com, .fr).
                             </div>
                         </fieldset>
                         <fieldset>
@@ -163,9 +292,15 @@
                                     <optgroup label="Prestation">
                                         <option value="devis-prestation">Devis sur une prestation</option>
                                         <option value="sav-prestation">SAV sur une prestation</option>
-                                        <option value="info-prestation">Information sur  une prestation</option>
+                                        <option value="info-prestation">Information sur une prestation</option>
                                     </optgroup>
                                 </select>
+                            </p>
+                            <p class="sav-produit hidden">
+                                <label for="num-serie">
+                                    Numéro de série du produit
+                                </label>
+                                <input type="text" name="num-serie" id="num-serie" />
                             </p>
                             <div class="form-info" id="info-type-demande">
                                 Sélectionnez le type de demande que vous souhaitez nous faire parvenir
@@ -173,26 +308,68 @@
                             <p>
                                 <label for="demande">Votre demande</label><br />
                                 <textarea name="demande" id="demande" aria-describedby="info-demande"></textarea>
-                                <div class="form-info" id="info-demande">
-                                    Veuillez décrire votre demande, apportez le plus de précision possible.
-                                </div>
+                            <div class="form-info" id="info-demande">
+                                Veuillez décrire votre demande, apportez le plus de précision possible.
+                            </div>
                             </p>
                             <p>
                                 <label for="entite" class="form-fluid">Particulier ?</label>
-                                <input type="radio" name="entite" id="entite" value="physique" checked> <label class="chb-label">OUI</label>
-                                <input type="radio" name="entite" id="entite" value="morale"> <label class="chb-label">NON</label>
+                                <input type="radio" name="entite" id="entite" value="physique" checked> <label
+                                    class="chb-label">OUI</label>
+                                <input type="radio" name="entite" id="entite" value="morale"> <label
+                                    class="chb-label">NON</label>
                             </p>
                             <p>
                                 <label class="form-fluid">Voie de communication pour réponse</label>
-                                <input type="checkbox" name="com-email" id="com-email" checked> <label class="chb-label">Email</label>
-                                <input type="checkbox" name="com-tel" id="com-tel" > <label class="chb-label">Téléphone</label>
+                                <input type="checkbox" name="com-email" id="com-email" checked> <label
+                                    class="chb-label">Email</label>
+                                <input type="checkbox" name="com-tel" id="com-tel"> <label
+                                    class="chb-label">Téléphone</label>
                             </p>
+                            <p>
+                            <h3><a href="#" id="open-cgv">Cliquez ici pour valider les Conditions Générales de Vente</a>
+                            </h3>
+                            </p>
+                            <div id="CGV">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, aspernatur
+                                    itaque necessitatibus suscipit voluptatum minima quos et incidunt, nostrum eos sint
+                                    eius illum fugit molestias, voluptatem ex eveniet perspiciatis nesciunt?
+                                </p>
+                                <p>
+                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae illo, sit eaque
+                                    tempore autem deleniti eum porro exercitationem in error consequatur dolores ipsa?
+                                    Autem aspernatur ex veritatis explicabo cumque accusantium!
+                                </p>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit earum nostrum porro
+                                    consequatur, accusamus magni voluptas quis maiores. Officia eveniet consequuntur
+                                    deleniti officiis ex asperiores voluptate libero, dolorem maxime perspiciatis!
+                                </p>
+                                <p>
+                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto dignissimos id
+                                    provident sit delectus nemo adipisci, accusamus sunt vitae aut beatae eligendi
+                                    nesciunt tenetur hic modi nam ab ex quo.
+                                </p>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus blanditiis
+                                    maiores quas vel id sapiente enim ullam quos ducimus eligendi perspiciatis rem amet
+                                    doloremque officia fuga quae, eaque quasi exercitationem.
+                                </p>
+                                <p>
+                                    <label class="form-fluid">Validation des Conditions générale de vente</label>
+                                    <input type="checkbox" name="valid-CGV" id="valid-CGV"> <label class="chb-label">
+                                        J'ai bien compris et j'accèpte les Conditions Générale de Vente
+                                    </label>
+                                </p>
+                            </div>
                         </fieldset>
                         <p>
-                            <button type="submit" name="envoi" value="envoiOk">
+                            <button type="submit" name="envoi" id="envoi" value="envoiOk">
                                 Envoyer
                             </button>
                         </p>
+                        <div class="form-error" id="form-error"></div>
                     </form>
                 </main>
             </article>
@@ -228,8 +405,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="./javascript-tableaux.html" target="_self" 
-                    title="Lien vers les tableaux">
+                    <a href="./javascript-tableaux.html" target="_self" title="Lien vers les tableaux">
                         Les tableaux
                     </a>
                 </li>
@@ -254,5 +430,8 @@
         </section>
     </footer>
 </body>
+<script>
+    console.log('page chargée');
+</script>
 
 </html>
