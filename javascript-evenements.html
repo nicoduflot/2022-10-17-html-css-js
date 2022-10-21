@@ -32,6 +32,9 @@
                 tdSep.innerHTML = '&nbsp;';
                 separator.append(tdSep);
                 tdSep.setAttribute('colspan', '2');
+                separator.addEventListener('click', function(){
+                    console.log(`on écoute le clic sur le séparateur`);
+                });
                 tBody.append(separator);
 
                 let trAnnee = document.createElement('tr');
@@ -90,7 +93,7 @@
                 nbInfos++;
             }
 
-            console.log('tbody',tBody);
+            //console.log('tbody',tBody);
             return tBody;
         }
 
@@ -115,7 +118,7 @@
                         }
                     });
                     document.querySelector('#infoJeu tbody').remove();
-                    document.querySelector('#infoJeu').append(createJVRows(tabInfoJeu, 1));
+                    document.querySelector('#infoJeu').append(createJVRows(tabInfoJeu));
                 });
             });
 
@@ -136,7 +139,7 @@
                                 if (value.innerText.toLowerCase().indexOf(searchLower) >= 0) {
                                     value.parentNode.childNodes.forEach(function (value) {
                                         if (value.nodeName === 'TD') {
-                                            console.log(value.innerText);
+                                            //console.log(value.innerText);
                                             tabInfoJeu.push(value.innerText);
                                         }
                                     });
