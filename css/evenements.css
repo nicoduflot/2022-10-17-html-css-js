@@ -1,0 +1,51 @@
+body > main article,
+body > main{
+    width: 100%;
+}
+
+body > main{
+    padding: 2rem;
+}
+
+.table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table caption{
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    line-height: 1.5rem;
+}
+
+.table td, 
+.table th{
+    border: 1px solid black;
+}
+
+.table#infoJeu th{
+    width: 25%;
+}
+
+.table.rayure tbody tr:nth-of-type(odd){
+    background-color: rgba(0, 0, 0, 0.35);
+}
+
+.affichageJV{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.affTab{
+    width: 70%;
+}
+
+.affElement{
+    width: 28%;
+}
+
+.hidden{
+    display: none;
+}

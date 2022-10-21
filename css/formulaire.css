@@ -91,3 +91,23 @@ form p input[type="radio"]{
     border-color: red!important;
     box-shadow: 0 0 5px red;
 }
+
+.table{
+    border-collapse: collapse;
+}
+
+.table caption{
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    line-height: 1.5rem;
+}
+
+.table td, 
+.table th{
+    border: 1px solid black;
+}
+
+.table.rayure tbody tr:nth-of-type(odd){
+    background-color: rgba(0, 0, 0, 0.35);
+}
