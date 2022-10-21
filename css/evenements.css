@@ -44,8 +44,14 @@ body > main{
 
 .affElement{
     width: 28%;
+    height: 300px;
+    overflow: auto;
 }
 
 .hidden{
     display: none;
+}
+
+.search{
+    width: 100%;
 }

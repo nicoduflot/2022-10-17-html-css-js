@@ -23,50 +23,131 @@
         }
     </style>
     <script language="javascript">
+        function createJVRows(tabInfo, nbOccurence = 1) {
+            let tBody = document.createElement('tbody');
+            let nbInfos = 0;
+            for (i = 0; i < nbOccurence; i++) {
+                let separator = document.createElement('tr');
+                let tdSep = document.createElement('td');
+                tdSep.innerHTML = '&nbsp;';
+                separator.append(tdSep);
+                tdSep.setAttribute('colspan', '2');
+                tBody.append(separator);
+
+                let trAnnee = document.createElement('tr');
+                let thAnnee = document.createElement('th');
+                thAnnee.innerHTML = 'Année de sortie';
+                let tdAnnee = document.createElement('td');
+                let contentAnnee = document.createTextNode(tabInfo[nbInfos]);
+                tdAnnee.append(contentAnnee);
+                trAnnee.append(thAnnee);
+                trAnnee.append(tdAnnee);
+                tBody.append(trAnnee);
+                nbInfos++;
+
+                let trTitre = document.createElement('tr');
+                let thTitre = document.createElement('th');
+                thTitre.innerHTML = 'Titre';
+                let tdTitre = document.createElement('td');
+                let contentTitre = document.createTextNode(tabInfo[nbInfos]);
+                tdTitre.append(contentTitre);
+                trTitre.append(thTitre);
+                trTitre.append(tdTitre);
+                tBody.append(trTitre);
+                nbInfos++;
+
+                let trGenre = document.createElement('tr');
+                let thGenre = document.createElement('th');
+                thGenre.innerHTML = 'Genre';
+                let tdGenre = document.createElement('td');
+                let contentGenre = document.createTextNode(tabInfo[nbInfos]);
+                tdGenre.append(contentGenre);
+                trGenre.append(thGenre);
+                trGenre.append(tdGenre);
+                tBody.append(trGenre);
+                nbInfos++;
+
+                let trPlateforme = document.createElement('tr');
+                let thPlateforme = document.createElement('th');
+                thPlateforme.innerHTML = 'Plateforme';
+                let tdPlateforme = document.createElement('td');
+                let contentPlateforme = document.createTextNode(tabInfo[nbInfos]);
+                tdPlateforme.append(contentPlateforme);
+                trPlateforme.append(thPlateforme);
+                trPlateforme.append(tdPlateforme);
+                tBody.append(trPlateforme);
+                nbInfos++;
+
+                let trDistributeur = document.createElement('tr');
+                let thDistributeur = document.createElement('th');
+                thDistributeur.innerHTML = 'Distributeur';
+                let tdDistributeur = document.createElement('td');
+                let contentDistributeur = document.createTextNode(tabInfo[nbInfos]);
+                tdDistributeur.append(contentDistributeur);
+                trDistributeur.append(thDistributeur);
+                trDistributeur.append(tdDistributeur);
+                tBody.append(trDistributeur);
+                nbInfos++;
+            }
+
+            console.log('tbody',tBody);
+            return tBody;
+        }
+
         window.addEventListener('DOMContentLoaded', function () {
             /* désactiver tous les liens du tableau*/
             /* récupérer tous les liens dans une collection de lien */
             let allTableLinks = document.querySelectorAll('#jv a');
-            //console.log(allTableLinks);
-            allTableLinks.forEach(function(link){
-                link.addEventListener('click', function(event){
+            allTableLinks.forEach(function (link) {
+                link.addEventListener('click', function (event) {
                     event.preventDefault();
                 });
             });
             /* au clic sur un ligne du tableau, récupérer le tr cliqué */
             let allTableRows = document.querySelectorAll('#jv tbody tr');
-            //console.log(allTableRows);
-            allTableRows.forEach(function(jeuVideo){
-                jeuVideo.addEventListener('click', function(event){
+            allTableRows.forEach(function (jeuVideo) {
+                jeuVideo.addEventListener('click', function (event) {
                     document.getElementById('infoJeu').classList.remove('hidden');
-                    //console.log(jeuVideo.childNodes);
                     let tabInfoJeu = [];
-                    jeuVideo.childNodes.forEach(function(value){
-                        if(value.nodeName === 'TD'){
-                            //console.log(value.innerText);
+                    jeuVideo.childNodes.forEach(function (value) {
+                        if (value.nodeName === 'TD') {
                             tabInfoJeu.push(value.innerText);
                         }
                     });
-                    //console.log(tabInfoJeu);
-                    /*
-                            annee
-                            titre
-                            genre
-                            plateforme
-                            distributeur
-                            */
-                    let row = 0;
-                    document.getElementById('annee').innerHTML = tabInfoJeu[0];
-                    document.getElementById('titre').innerHTML = tabInfoJeu[1];
-                    document.getElementById('genre').innerHTML = tabInfoJeu[2];
-                    document.getElementById('plateforme').innerHTML = tabInfoJeu[3];
-                    document.getElementById('distributeur').innerHTML = tabInfoJeu[4];
+                    document.querySelector('#infoJeu tbody').remove();
+                    document.querySelector('#infoJeu').append(createJVRows(tabInfoJeu, 1));
                 });
             });
 
-            window.addEventListener('keyup', function(event){
-                if(event.keyCode === 27){
+            window.addEventListener('keyup', function (event) {
+                if (event.keyCode === 27) {
                     document.getElementById('infoJeu').classList.add('hidden');
+                }
+            });
+
+            let search = document.getElementById('search');
+            search.addEventListener('keyup', function () {
+                let tabInfoJeu = [];
+                let searchLower = search.value.toLowerCase();
+                if (searchLower.length > 2) {
+                    allTableRows.forEach(function (jeuVideo) {
+                        jeuVideo.childNodes.forEach(function (value) {
+                            if (value.nodeName === 'TD') {
+                                if (value.innerText.toLowerCase().indexOf(searchLower) >= 0) {
+                                    value.parentNode.childNodes.forEach(function (value) {
+                                        if (value.nodeName === 'TD') {
+                                            console.log(value.innerText);
+                                            tabInfoJeu.push(value.innerText);
+                                        }
+                                    });
+                                }
+                            }
+                        });
+                    });
+                    document.querySelector('#infoJeu tbody').remove();
+                    let testTbody = createJVRows(tabInfoJeu, (tabInfoJeu.length / 5));
+                    document.querySelector('#infoJeu').append(testTbody);
+                    document.getElementById('infoJeu').classList.remove('hidden');
                 }
             });
         });
@@ -126,6 +207,11 @@
                     <h2>Gestion des évènements</h2>
                 </header>
                 <main class="affichageJV">
+                    <h2>Recherche Jeu</h2>
+                    <p class="search">
+                        <input type="text" id="search" />
+                    </p>
+
                     <div class="affTab">
                         <table class="table rayure" id="jv">
                             <thead>
@@ -697,31 +783,13 @@
                             <tfoot></tfoot>
                         </table>
                     </div>
-                    <div class="affElement">
+                    <div class="affElement" id="affElement">
                         <table class="table rayure hidden" id="infoJeu">
                             <caption>
                                 Appuyez sue la touche "Échap" pour fermer le tableau
                             </caption>
-                            <tr>
-                                <th>Année de sortie</th>
-                                <td id="annee"></td>
-                            </tr>
-                            <tr>
-                                <th>Titre</th>
-                                <td id="titre"></td>
-                            </tr>
-                            <tr>
-                                <th>Genre</th>
-                                <td id="genre"></td>
-                            </tr>
-                            <tr>
-                                <th>Plateforme</th>
-                                <td id="plateforme"></td>
-                            </tr>
-                            <tr>
-                                <th>Distributeur</th>
-                                <td id="distributeur"></td>
-                            </tr>
+                            <tbody>
+                            </tbody>
                         </table>
                     </div>
                 </main>
